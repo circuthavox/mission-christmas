@@ -10,7 +10,14 @@ function ensureSeason(y){const k=seasonKey(y);if(!store.seasons[k]){const select
 function season(){return ensureSeason(viewYear)}
 function todayParts(){const d=localNow();return {year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate()}}
 function isUnlocked(day,y){const t=todayParts();if(y<t.year)return true;if(y>t.year)return false;return t.month===12&&t.day>=day}
-function isFinale(y){const t=todayParts();return y<t.year||(y===t.year&&t.month===12&&t.day>=25)}
+function isFinale(y){
+  const t=todayParts();
+  const seasonData=store.seasons[seasonKey(y)];
+  const christmasDay=seasonData?.assignments?.find(a=>a.day===25);
+  const christmasChallengeCompleted=!!christmasDay?.result;
+  const christmasDateHasArrived=(y<t.year)||(y===t.year&&t.month===12&&t.day>=25);
+  return christmasDateHasArrived&&christmasChallengeCompleted;
+}
 function challengeFor(a){return database.find(c=>c.id===a.challengeId)}
 function render(){const s=season(),t=todayParts();$("#seasonLabel").textContent=`DECEMBER ${viewYear}`;$("#yearDisplay").textContent=viewYear;$("#prevYear").disabled=!Object.keys(store.seasons).some(y=>+y<viewYear);$("#nextYear").disabled=viewYear>=t.year;const recorded=s.assignments.filter(a=>a.result).length;$("#progressCount").textContent=recorded;$("#progressBar").style.width=`${recorded*4}%`;
 const reveal=isFinale(viewYear);$("#scoreStatus").textContent=reveal?"DECLASSIFIED":"CLASSIFIED";$("#scoreHint").textContent=reveal?"The mission has been revealed.":"Final score revealed on Christmas Day.";
