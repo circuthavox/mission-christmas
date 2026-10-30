@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d31"><meta name="description" content="25 days. 25 challenges. One final score.">
+  <title>Mission: Christmas</title><link rel="manifest" href="manifest.json"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#" aria-label="Mission Christmas home"><span class="brand-mark">M</span><span>MISSION<span class="brand-colon">:</span> CHRISTMAS</span></a><button id="settingsBtn" class="icon-button" aria-label="Settings">⚙</button></header>
+<main class="shell">
+  <section class="hero">
+    <div class="hero-copy"><p class="eyebrow">THE ADVENT CHALLENGE</p><h1>MISSION:<br><em>CHRISTMAS</em></h1><p class="subtitle">25 days. 25 challenges. One final score.</p>
+      <div class="hero-meta"><span id="seasonLabel">DECEMBER 2026</span><span class="meta-dot"></span><span>ANNUAL EDITION</span></div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="star star-a">✳</div><div class="star star-b">✦</div><div class="tree tree-back"></div><div class="tree tree-front"></div><div class="moon"></div><div class="art-caption">MAKE<br>THIS<br>DECEMBER<br>COUNT.</div></div>
+  </section>
+  <section class="status-row">
+    <div><p class="eyebrow">MISSION PROGRESS</p><h2><span id="progressCount">0</span><small> / 25 RECORDED</small></h2><div class="progress-track"><span id="progressBar"></span></div></div>
+    <div class="classified"><span class="lock">▣</span><div><p class="eyebrow">CURRENT SCORE</p><strong id="scoreStatus">CLASSIFIED</strong><small id="scoreHint">Final score revealed on Christmas Day.</small></div></div>
+  </section>
+  <section class="calendar-section"><div class="section-heading"><div><p class="eyebrow">YOUR DECEMBER ASSIGNMENTS</p><h2>The Advent Calendar</h2></div><div class="year-switch"><button id="prevYear" aria-label="Previous year">‹</button><span id="yearDisplay">2026</span><button id="nextYear" aria-label="Next year">›</button></div></div>
+    <div id="calendar" class="calendar" aria-label="Advent calendar"></div>
+    <p class="calendar-note"><span class="note-dot"></span> Doors unlock at midnight in your local time zone.</p>
+  </section>
+  <section id="finale" class="finale hidden"><p class="eyebrow">THE MISSION IS COMPLETE</p><h2>Your Christmas<br><em>score reveal.</em></h2><div class="final-score" id="finalScore">0</div><p class="final-label">TOTAL COINS</p><div class="stats-grid" id="finalStats"></div><p class="final-message">Whatever the score, you made the season memorable.</p></section>
+  <footer><span>MISSION: CHRISTMAS</span><span>AN ADVENT GAME · EST. 2026</span></footer>
+</main>
+<div id="challengeModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-backdrop" data-close></div><article class="modal-card"><button class="close-button" data-close aria-label="Close">×</button><div id="challengeContent"></div></article></div>
+<div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-backdrop" data-close-settings></div><article class="modal-card settings-card"><button class="close-button" data-close-settings aria-label="Close">×</button><p class="eyebrow">PREFERENCES</p><h2 id="settingsTitle">Game settings</h2><p class="muted">Your calendar and results are stored on this device in this browser.</p><div class="setting-block"><label for="seasonSelect">View season</label><select id="seasonSelect"></select></div><div class="setting-block"><label for="testDate">Preview date <span>(testing only)</span></label><input id="testDate" type="date"><small>Leave blank to use your device's actual local date.</small></div><button id="applyDate" class="secondary-button">Apply preview date</button><button id="resetBtn" class="danger-button">Reset this season's results</button><p class="tiny muted">Resetting cannot be undone. Other years are kept.</p></article></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>

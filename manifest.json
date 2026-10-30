@@ -1,0 +1,23 @@
+{
+  "name": "Mission: Christmas",
+  "short_name": "Mission Xmas",
+  "description": "25 days. 25 challenges. One final score.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f0e5",
+  "theme_color": "#123d31",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
